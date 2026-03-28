@@ -54,13 +54,15 @@ def build_ebook():
                 border: 1px solid #e9ecef;
                 padding: 1em;
                 border-radius: 4px;
-                overflow-x: a;
+                white-space: pre-wrap;
+                word-wrap: break-word;
                 font-family: 'Courier New', Courier, monospace;
             }
             code {
                 background-color: #f8f9fa;
                 padding: 0.2em 0.4em;
                 border-radius: 3px;
+                word-wrap: break-word;
                 font-family: 'Courier New', Courier, monospace;
             }
             table {
