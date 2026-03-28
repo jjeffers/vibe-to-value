@@ -20,39 +20,72 @@ def build_ebook():
         <style>
             @page {
                 size: A4;
-                margin: 2cm;
+                margin: 2.5cm 2cm;
+                @top-center {
+                    content: "VIBE-TO-VALUE GUIDE · jjeffers.net";
+                    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                    font-size: 8pt;
+                    color: #999;
+                    border-bottom: 1px solid #eeeeee;
+                    padding-bottom: 10px;
+                }
+                @top-right {
+                    content: "PAGE " counter(page);
+                    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                    font-size: 8pt;
+                    color: #999;
+                    border-bottom: 1px solid #eeeeee;
+                    padding-bottom: 10px;
+                }
+                @bottom-left {
+                    content: "© jjeffers.net · Not for redistribution without permission";
+                    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                    font-size: 8pt;
+                    color: #999;
+                    border-top: 1px solid #eeeeee;
+                    padding-top: 10px;
+                    width: 100%;
+                }
+            }
+            @page :first {
+                margin: 0;
+                @top-center { content: none; border: none; }
+                @top-right { content: none; border: none; }
+                @bottom-left { content: none; border: none; }
             }
             body {
                 font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-                line-height: 1.6;
-                color: #333;
+                line-height: 1.7;
+                color: #222;
             }
             .chapter {
                 page-break-before: always;
             }
             h1 {
-                color: #2c3e50;
-                border-bottom: 2px solid #ecf0f1;
-                padding-bottom: 10px;
-                margin-top: 0;
-            }
-            h1:first-of-type {
-                page-break-before: avoid;
+                color: #111;
+                border-bottom: 2px solid #de4a22;
+                padding-bottom: 15px;
+                margin-top: 1em;
+                font-size: 2.2em;
             }
             h2 {
-                color: #34495e;
-                margin-top: 1.5em;
+                color: #222;
+                margin-top: 1.8em;
+                font-size: 1.4em;
             }
             h3 {
-                color: #7f8c8d;
+                color: #de4a22;
+                font-size: 1.1em;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
             }
             p {
-                margin: 1em 0;
+                margin: 1.2em 0;
             }
             pre {
                 background-color: #f8f9fa;
                 border: 1px solid #e9ecef;
-                padding: 1em;
+                padding: 1.5em;
                 border-radius: 4px;
                 white-space: pre-wrap;
                 word-wrap: break-word;
@@ -64,6 +97,7 @@ def build_ebook():
                 border-radius: 3px;
                 word-wrap: break-word;
                 font-family: 'Courier New', Courier, monospace;
+                color: #e83e8c;
             }
             table {
                 width: 100%;
@@ -71,41 +105,53 @@ def build_ebook():
                 margin: 1.5em 0;
             }
             th, td {
-                border: 1px solid #ddd;
+                border-bottom: 1px solid #ddd;
                 padding: 12px 8px;
                 text-align: left;
             }
             th {
-                background-color: #f2f2f2;
-                font-weight: bold;
+                color: #666;
+                font-size: 0.9em;
+                text-transform: uppercase;
             }
             blockquote {
-                border-left: 4px solid #3498db;
-                margin: 1.5em 0;
-                padding: 0.5em 1em;
-                background-color: #fdfdfd;
-                color: #555;
+                border-right: 4px solid #de4a22;
+                margin: 2em 0;
+                padding: 1.5em;
+                background-color: #fcf7f4;
+                color: #444;
             }
             /* Add cover page styling */
             .cover-page {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                align-items: center;
+                align-items: flex-start;
                 height: 100vh;
-                text-align: center;
+                background-color: #151b26;
+                border-left: 20px solid #de4a22;
+                padding-left: 50px;
+                text-align: left;
                 page-break-after: always;
+                color: #ffffff;
+            }
+            .cover-page p {
+                color: #999;
+                font-size: 1.2em;
             }
             .cover-title {
-                font-size: 3em;
-                color: #2c3e50;
-                margin-bottom: 0.2em;
+                font-size: 4em;
+                color: #ffffff;
+                margin-bottom: 0.1em;
                 page-break-before: avoid;
                 border: none;
+                line-height: 1.1;
+                font-weight: 800;
             }
             .cover-subtitle {
                 font-size: 1.5em;
-                color: #7f8c8d;
+                color: #999;
+                margin-top: 1em;
             }
         </style>
     </head>
