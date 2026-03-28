@@ -8,6 +8,16 @@
 
 ## Introduction: How to Use This Guide
 
+Congratulations, you've leaned into AI tools and created your vision in real, working code! Satisified and excited to forge ahead with the next wave of improvements or changes, you begin the next session with the AI.
+
+But it soon becomes clear that something is not quite right. That form you created the other day is missing fields. After fixing that, you check the app again but now some of the data is missing. Confused, you ask the agent to fix that. After awhile, the AI proclaims the problem really is fixed this time. And maybe that problem is fixed. 
+
+You are not so sure, so you now look at the list of features and get a sinking feeling in the pit of your stomach. Are they all still there? 
+
+For every step forward, you feel like you are being pushed back two steps. The AI agent is like a junior intern, and you have to keep yelling at it. This is the future you were promised.
+
+The good news is that there is a way out. There techniques and procedures learned the hard way by software engineers over the last 50 years that can be applied to AI-assisted development. 
+
 This guide is the companion to the Vibe-to-Value Audit™ checklist. Where the checklist identifies risk flags, this guide explains them: why each item matters, what goes wrong when it's ignored, and — most importantly — what to do about it.
 
 Each domain follows the same structure. The domain introduction gives you the big picture — what category of problem this is and why it matters for AI systems specifically. Each individual item then has four parts:
