@@ -153,6 +153,42 @@ def build_ebook():
                 color: #999;
                 margin-top: 1em;
             }
+            /* Table of Contents */
+            .toc-page {
+                page-break-after: always;
+                padding: 40px;
+            }
+            .toc-page h1 {
+                border-bottom: 2px solid #de4a22;
+                padding-bottom: 10px;
+                margin-bottom: 30px;
+            }
+            .toc-list {
+                list-style: none;
+                padding: 0;
+            }
+            .toc-list li {
+                margin-bottom: 12px;
+                font-size: 1.1em;
+            }
+            .toc-list a {
+                color: #333;
+                text-decoration: none;
+                display: flex;
+            }
+            .toc-title {
+                margin-right: -4px;
+            }
+            .toc-leader {
+                flex-grow: 1;
+                border-bottom: 1px dotted #ccc;
+                margin: 0 8px;
+                position: relative;
+                top: -6px;
+            }
+            .toc-page-num::after {
+                content: target-counter(attr(href), page);
+            }
         </style>
     </head>
     <body>
@@ -162,15 +198,41 @@ def build_ebook():
         </div>
     """
 
-    for file_path in md_files:
+    toc_entries = []
+    chapters_html = ""
+
+    for i, file_path in enumerate(md_files):
         print(f"Processing {file_path}...")
         with open(file_path, 'r', encoding='utf-8') as f:
-            md_content = f.read()
+            lines = f.readlines()
+            
+            # Extract title for TOC
+            title = file_path
+            for line in lines:
+                if line.startswith('# '):
+                    title = line[2:].strip()
+                    break
+                    
+            chapter_id = f"chap-{i}"
+            toc_entries.append((title, chapter_id))
+            
+            md_content = "".join(lines)
             html_content = markdown.markdown(
                 md_content, 
                 extensions=['fenced_code', 'tables']
             )
-            full_html += f"\n<div class='chapter'>\n{html_content}\n</div>\n"
+            # Inject anchor ID into chapter wrapper
+            chapters_html += f"\n<div class='chapter' id='{chapter_id}'>\n{html_content}\n</div>\n"
+
+    # Build the TOC HTML
+    toc_html = "<div class='toc-page'>\n<h1>Table of Contents</h1>\n<ul class='toc-list'>\n"
+    for title, chapter_id in toc_entries:
+        # Weasyprint target-counter needs href to an id
+        toc_html += f"  <li><a href='#{chapter_id}'><span class='toc-title'>{title}</span><span class='toc-leader'></span><span class='toc-page-num' href='#{chapter_id}'></span></a></li>\n"
+    toc_html += "</ul>\n</div>\n"
+
+    # Assemble full HTML
+    full_html += toc_html + chapters_html
 
     full_html += """
     </body>
