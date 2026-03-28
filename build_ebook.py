@@ -135,6 +135,10 @@ def build_ebook():
     html = HTML(string=full_html, base_url=os.getcwd())
     html.write_pdf('ebook.pdf')
     print("Done! PDF saved to ebook.pdf")
+    
+    print("Opening PDF in Document Viewer...")
+    import subprocess
+    subprocess.Popen(["evince", "ebook.pdf"])
 
 if __name__ == "__main__":
     build_ebook()
