@@ -27,8 +27,10 @@ def build_ebook():
                 line-height: 1.6;
                 color: #333;
             }
-            h1 {
+            .chapter {
                 page-break-before: always;
+            }
+            h1 {
                 color: #2c3e50;
                 border-bottom: 2px solid #ecf0f1;
                 padding-bottom: 10px;
@@ -120,7 +122,7 @@ def build_ebook():
                 md_content, 
                 extensions=['fenced_code', 'tables']
             )
-            full_html += f"\\n<div class='chapter'>\\n{html_content}\\n</div>\\n"
+            full_html += f"\n<div class='chapter'>\n{html_content}\n</div>\n"
 
     full_html += """
     </body>
