@@ -6,6 +6,8 @@
 
 ---
 
+> “Everyone knows that debugging is twice as hard as writing a program in the first place. So if you're as clever as you can be when you write it, how will you ever debug it?”, Brian Kernighan, author of the C language.
+
 Vibe-coded systems often start life as a single file, a Jupyter notebook, or a rapid prototype that "just worked." The problem isn't that they started messy — it's that they stayed messy. Code quality isn't about aesthetics; it's about your team's ability to reason about the system six months from now, when the person who wrote it has moved on or simply forgotten what they were thinking.
 
 Every item in this domain is a structural risk that compounds over time.
