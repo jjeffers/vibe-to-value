@@ -2,24 +2,17 @@ import glob
 import re
 
 AI_SMELLS = [
-    "delve",
-    "tapestry",
-    "testament",
-    "symphony",
-    "crucial",
-    "landscape",
-    "moreover",
-    "in conclusion",
-    "important to note",
-    "it's worth noting",
-    "at the end of the day",
-    "game changer",
-    "multifaceted",
-    "paradigm shift",
-    "unlocking",
-    "embrace",
-    "foster",
-    "meticulous"
+    "delve", "tapestry", "testament", "symphony", "crucial", "landscape", 
+    "moreover", "in conclusion", "important to note", "it's worth noting", 
+    "at the end of the day", "game changer", "multifaceted", "paradigm shift", 
+    "unlocking", "embrace", "foster", "meticulous",
+    "it’s important to note", "it’s worth mentioning", "it should be noted", 
+    "this demonstrates", "furthermore", "additionally", "in addition", 
+    "however", "particularly", "specifically", "incredibly", "absolutely", 
+    "tremendously", "individuals", "utilize", "facilitate", "fascinating", 
+    "remarkable", "incredible", "demonstrate", "this can sometimes help with", 
+    "in many cases", "often", "tends to", "may", "might", "could potentially", 
+    "it seems that", "appears to be"
 ]
 
 def scan_files():
