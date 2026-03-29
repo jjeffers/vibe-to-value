@@ -245,12 +245,12 @@ def build_ebook():
         
     print("Generating PDF with WeasyPrint...")
     html = HTML(string=full_html, base_url=os.getcwd())
-    html.write_pdf('ebook.pdf')
-    print("Done! PDF saved to ebook.pdf")
+    html.write_pdf('vibe-to-value-guide.pdf')
+    print("Done! PDF saved to vibe-to-value-guide.pdf")
     
     print("Opening PDF in Document Viewer...")
     import subprocess
-    subprocess.Popen(["evince", "ebook.pdf"])
+    subprocess.Popen(["evince", "vibe-to-value-guide.pdf"])
 
 if __name__ == "__main__":
     build_ebook()
