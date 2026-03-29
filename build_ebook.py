@@ -2,8 +2,10 @@ import os
 import glob
 import markdown
 from weasyprint import HTML, CSS
+import scan_smells
 
 def build_ebook():
+    scan_smells.scan_files()
     print("Gathering markdown files...")
     # Find all numbered markdown files
     md_files = sorted(glob.glob("[0-9][0-9]-*.md"))
@@ -194,7 +196,7 @@ def build_ebook():
     <body>
         <div class="cover-page">
             <h1 class="cover-title">From Vibe to Value</h1>
-            <p class="cover-subtitle">A Guide to Agentic Capabilities</p>
+            <p class="cover-subtitle">A Guide to Getting Over the Vibe Coding Wall</p>
         </div>
     """
 
